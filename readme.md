@@ -5,6 +5,8 @@
 ### Requirement
 
 * GIT
+  * Git Flow
+  * Git LFS
 * Visual studio Code
 * 
 
@@ -33,7 +35,3 @@
 
   * Postman
   * Boomerang
-
-
-
-Justifier le choix de la techno et la méthode d'agilité
