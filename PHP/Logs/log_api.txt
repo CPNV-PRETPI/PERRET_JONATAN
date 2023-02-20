@@ -1,7 +1,0 @@
-2023-02-20 11:15:18 - UserTest logged in:  - 0.005 seconds
-2023-02-20 11:15:29 - UserTest logged in:  - 0.003 seconds
-2023-02-20 11:15:30 - UserTest logged in:  - 0.001 seconds
-2023-02-20 11:15:30 - UserTest logged in:  - 0.002 seconds
-2023-02-20 11:15:31 - UserTest logged in:  - 0.004 seconds
-2023-02-20 11:15:31 - UserTest logged in:  - 0.117 seconds
-2023-02-20 11:15:32 - UserTest logged in:  - 0.002 seconds
