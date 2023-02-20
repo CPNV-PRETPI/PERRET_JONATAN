@@ -589,4 +589,7 @@ http://getcomposer.org/doc/02-libraries.md#lock-file
 *.css.map
 *.sass.map
 *.scss.map
+
+##### CUSTOM
 DbCredentials.json
+/PHP/Logs/
