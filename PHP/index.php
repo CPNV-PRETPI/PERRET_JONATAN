@@ -10,6 +10,13 @@ switch($_GET['apimethod']) {
     case 'ping':
         print "pong";
         break;
+    case "authenticate" :
+        // Login 
+        require_once("Controller/user.php");
+        $tmpUser = Login($_POST);
+        $user = [$tmpUser->username, $tmpUser->policies];
+        print json_encode($user);
+        break;
     default:
         print "this apimethod is not supported";
         break;
