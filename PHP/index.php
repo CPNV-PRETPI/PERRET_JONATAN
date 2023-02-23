@@ -13,7 +13,8 @@ switch($_GET['apimethod']) {
     case "authenticate" :
         // Login 
         require_once("Controller/user.php");
-        $user = Login($_POST);
+        $tmpUser = Login($_POST);
+        $user = [$tmpUser->username, $tmpUser->policies];
         print json_encode($user);
         break;
     default:
