@@ -22,7 +22,7 @@ struct LoginView: View {
                 case .success(let result):
                     print("Found code: \(result.string)")
                     // decode the string from qr code
-                    var url = URL(string: "http://localhost:8000?apimethod=ping")
+                    var url = URL(string: "http://10.0.0.1:8000/?apimethod=ping")
                     
                     
                     // Call the function to request the authentication

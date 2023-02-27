@@ -14,7 +14,7 @@ switch($_GET['apimethod']) {
         // Login 
         require_once("Controller/user.php");
         $tmpUser = Login($_POST);
-        $user = [$tmpUser->username, $tmpUser->policies];
+        $user = array("username"=>$tmpUser->username, "policies"=>$tmpUser->policies);
         print json_encode($user);
         break;
     default:

@@ -52,7 +52,7 @@ func PostRequest(url : URL, parameters : [String: Any]) {
     
     do {
       // create json object from data or use JSONDecoder to convert to Model stuct
-      if let jsonResponse = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as? [String: Any] {
+      if let jsonResponse = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] {
         print(jsonResponse)
         // handle json response
       } else {
@@ -60,7 +60,7 @@ func PostRequest(url : URL, parameters : [String: Any]) {
         throw URLError(.badServerResponse)
       }
     } catch let error {
-      print(error.localizedDescription)
+      print(error)
     }
   }
   // perform the task
