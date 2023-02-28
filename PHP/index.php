@@ -5,7 +5,7 @@ if(!isset($_GET['apimethod'])) {
     exit;
 }
 
-// switch with get field apimethode
+// switch with get field apimethod
 switch($_GET['apimethod']) {
     case 'ping':
         print "pong";
@@ -14,7 +14,7 @@ switch($_GET['apimethod']) {
         // Login 
         require_once("Controller/user.php");
         $tmpUser = Login($_POST);
-        $user = array("username"=>$tmpUser->username, "policies"=>$tmpUser->policies);
+        $user = array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
         print json_encode($user);
         break;
     default:
