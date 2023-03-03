@@ -3,7 +3,7 @@
         "phpunit/phpunit": "^10"
     },
   "require": {
-    "ext-pdo": "*",
+    "ext-mysqli": "*",
         "netresearch/jsonmapper": "^4.1"
   }
 }
