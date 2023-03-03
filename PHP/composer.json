@@ -3,7 +3,6 @@
         "phpunit/phpunit": "^10"
     },
   "require": {
-    "ext-mysqli": "*",
-        "netresearch/jsonmapper": "^4.1"
+    "ext-mysqli": "*"
   }
 }

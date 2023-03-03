@@ -1,6 +1,5 @@
 <?php
 
-
 use PHPUnit\Framework\TestCase;
 
 class User_Test extends TestCase
@@ -8,11 +7,11 @@ class User_Test extends TestCase
     public function test_Authenticate_CorrectLogin(){
         $userName = "UserTest";
         $secureString = "vXjKbLmZcNhGfTdRgHkYbUmNpQsCdHjX";
-        $hashedSecureSring = hash("sha256", $secureString);
+        $hashedSecureString = hash("sha256", $secureString);
         $_POST["security-string"] = $secureString;
 
         include_once "Models/User.php";
-        $expectedUser = new User($userName, $hashedSecureSring, "");
+        $expectedUser = new User($userName, $hashedSecureString, "");
 
         include_once "Controller/user.php";
         try {
