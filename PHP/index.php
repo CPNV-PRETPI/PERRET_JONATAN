@@ -10,6 +10,9 @@ switch($_GET['apimethod']) {
     case 'ping':
         print "pong";
         break;
+    case 'phpinfo':
+        phpinfo();
+        break;
     case "authenticate" :
         // Login 
         require_once("Controller/user.php");
