@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct HomePage: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .center) {
+            Spacer()
+            ZStack(alignment: .topLeading){
+                /*Text(settings.userName).font(.largeTitle).foregroundColor(Color.white)*/
+                Spacer()
+            }
+            VStack(){
+                Text("FIT FOCUSSSSS").font(.largeTitle).foregroundColor(Color.white)
+                Spacer()
+            }
+            HStack(alignment: .center, spacing: 15){
+                Spacer()
+                Spacer()
+            }.padding([.leading, .trailing], 27.5)
+            Spacer()
+        }
+        .padding().background(LinearGradient(gradient: Gradient(colors: [.orange, .red]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all))
     }
 }
 
