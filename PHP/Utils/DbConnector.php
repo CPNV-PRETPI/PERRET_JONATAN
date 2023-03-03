@@ -13,7 +13,9 @@
         // Connect to the database
         $conn = new mysqli($url, $user, $password, $database, $port);
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            http_response_code(500);
+            $conn->close();
+            throw new Exception("Connection failed");
         }
         return $conn;
     }
@@ -33,21 +35,20 @@
                 $usertmp = $row;
             }
         } else {
-            throw new Exception("Invalid security string");
+            throw new LoginException("Invalid security string");
         }
 
         $conn->close();
 
         require_once("Models/User.php");
         // create the new user object
-        $user = new User();
-        $user->username = $usertmp['username'];
-        $user->secure_string = $securityString;
-        $user->policies = $usertmp['policies'] == null ? "" : $usertmp['policies'];
-        $user->login_date = date("Y-m-d H:i:s");
+        $user = new User($usertmp['username'], $securityString, $usertmp['policies'] == null ? "" : $usertmp['policies']);
 
 
         return $user;
     }
+
+    class LoginException extends Exception{}
+
 
 ?>

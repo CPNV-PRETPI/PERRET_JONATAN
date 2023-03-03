@@ -1,5 +1,9 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^10"
-    }
+    },
+  "require": {
+    "ext-pdo": "*",
+        "netresearch/jsonmapper": "^4.1"
+  }
 }
