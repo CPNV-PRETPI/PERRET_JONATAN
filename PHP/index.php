@@ -4,6 +4,7 @@ if(!isset($_GET['apimethod'])) {
     print "no apimethod specified";
     exit;
 }
+require_once "Models/ErrorClass.php";
 
 // switch with get field apimethod
 switch($_GET['apimethod']) {
@@ -18,13 +19,34 @@ switch($_GET['apimethod']) {
         print json_encode($user);
         break;
     case "workouts":
-        // Get all available workouts
-        require_once("Controller/WorkoutManager.php");
+        // Verify Login
         try {
-            $workouts = GetWorkouts();
-            print json_encode($workouts);
-        } catch (WorkoutException $e) {
+            require_once "Controller/user.php";
+            $tmpUser = Login($_POST);
+
+            // Get all available workouts
+            require_once("Controller/WorkoutManager.php");
+            try {
+                $workouts = GetWorkouts();
+                print json_encode($workouts);
+            } catch (WorkoutException $e) {
+                $error = new ErrorClass("400", "Bad parameter", "You need to provide a secure string");
+                print (json_encode($error));
+            }
+        }catch(LoginException $e){
+            switch($e->getMessage()) {
+                case"No SecureString specified":
+                    $error = new ErrorClass("401", "Bad parameter", "You need to provide a secure string");
+                    print (json_encode($error));
+                    break;
+                case"Invalid security string":
+                    $error = new ErrorClass("401", "Not authorized", "Incorrect login");
+                    print (json_encode($error));
+                    break;
+            }
         }
+
+
         break;
     default:
         print "this apimethod is not supported";

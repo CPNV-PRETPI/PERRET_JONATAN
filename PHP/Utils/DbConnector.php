@@ -13,9 +13,8 @@
         // Connect to the database
         $conn = new mysqli($url, $user, $password, $database, $port);
         if ($conn->connect_error) {
-            http_response_code(500);
             $conn->close();
-            throw new Exception("Connection failed");
+            throw new DbException("Connection failed");
         }
         return $conn;
     }
@@ -48,7 +47,7 @@
         return $user;
     }
 
-    class LoginException extends Exception{}
+class DbException extends Exception{}
 
 
 ?>

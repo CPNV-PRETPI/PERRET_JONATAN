@@ -25,6 +25,9 @@ function GetWorkout(string $name):Workout{
 }
 
 function GetWorkouts():array{
+    $time_pre = microtime(true);
+    include_once ("Utils/DbConnector.php");
+
     include_once "Models/Workout.php";
     // Read the workout files
     $fileContent = file_get_contents("DATA/Workouts.json");
@@ -43,6 +46,10 @@ function GetWorkouts():array{
             $Workout->FromJson($workoutTmp);
             array_push($workoutsArray, $Workout);
         }
+        $time_post = microtime(true);
+        $exec_time = $time_post - $time_pre;
+        include_once("Utils/LogManager.php");
+        WriteLog($_SESSION["username"] . " get all workouts: ", $exec_time);
         return $workoutsArray;
     }catch (Exception $e){
         throw new WorkoutException("An error occurred");
