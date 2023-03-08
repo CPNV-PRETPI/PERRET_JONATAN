@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:scanner="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             mc:Ignorable="d"
+             x:Class="FitFocus.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+
+    <ContentPage.Content>
+        <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 40, 0, 0'}">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                    <GradientStop Color="Orange"
+                                    Offset="0.1" />
+                    <GradientStop Color="Red"
+                                    Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout>
+                <StackLayout Padding="10,0,10,0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                    <Label Text="FitFocus" FontSize="Title" TextColor="Black"/>
+                </StackLayout>
+                <AbsoluteLayout BackgroundColor="Black" >
+                    <scanner:ZXingScannerView x:Name="scanView"
+                        AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        IsVisible="False"
+                        IsEnabled="False"
+                        IsAnalyzing="False"
+                        IsScanning="False"
+                        HeightRequest="350"
+                        MinimumHeightRequest="350"
+                        WidthRequest="350"
+                        MinimumWidthRequest="350"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"/>
+                </AbsoluteLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

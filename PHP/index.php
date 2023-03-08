@@ -16,10 +16,23 @@ switch($_GET['apimethod']) {
         break;
     case "authenticate" :
         // Login 
-        require_once("Controller/user.php");
-        $tmpUser = Login($_POST);
-        $user = array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
-        print json_encode($user);
+        try{
+            require_once("Controller/user.php");
+            $tmpUser = Login($_POST);
+            $user = array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
+            print json_encode($user);
+        }catch(LoginException $e) {
+            switch ($e->getMessage()) {
+                case"No SecureString specified":
+                    $error = new ErrorClass("401", "Bad parameter", "You need to provide a secure string");
+                    print (json_encode($error));
+                    break;
+                case"Invalid security string":
+                    $error = new ErrorClass("401", "Not authorized", "Incorrect login");
+                    print (json_encode($error));
+                    break;
+            }
+        }
         break;
     case "workouts":
         // Verify Login
