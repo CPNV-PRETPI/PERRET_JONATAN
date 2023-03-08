@@ -7,7 +7,7 @@
 
             $message = date("Y-m-d H:i:s") . " - " . $message . " - " . round($timeToExecute*1000, 3) . " ms";
 
-            $logFile = fopen($fullpath, "a");
+            $logFile = fopen($fullpath, "w+");
             fwrite($logFile, $message . "\n");
             fclose($logFile);
         }catch (Exception $e){
