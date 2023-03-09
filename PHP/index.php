@@ -69,6 +69,7 @@ switch($_GET['apimethod']) {
         $filename = "log_api.txt";
         $fullpath = $path . $filename;
         print $fullpath;
+        break;
     default:
         print "this apimethod is not supported";
         break;
