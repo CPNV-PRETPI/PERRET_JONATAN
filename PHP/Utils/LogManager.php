@@ -1,7 +1,7 @@
 <?php 
     function WriteLog($message, $timeToExecute){
         try{
-            $path = $_SERVER['DOCUMENT_ROOT'] . "Logs/";
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/Logs/";
             $filename = "log_api.txt";
             $fullpath = $path . $filename;
 
