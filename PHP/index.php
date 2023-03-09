@@ -19,7 +19,7 @@ switch($_GET['apimethod']) {
         try{
             require_once("Controller/user.php");
             $tmpUser = Login($_POST);
-            $user = array("secureString"=>$tmpUser->getSecureString(), "username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
+            $user = array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
             print json_encode($user);
         }catch(LoginException $e) {
             switch ($e->getMessage()) {
