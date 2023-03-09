@@ -11,7 +11,7 @@
             fwrite($logFile, $message . "\n");
             fclose($logFile);
         }catch (Exception $e){
-
+            print($e);
         }
     }
 ?>
