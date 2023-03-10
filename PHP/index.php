@@ -4,7 +4,7 @@ if(!isset($_GET['apimethod'])) {
     print "no apimethod specified";
     exit;
 }
-require_once "Models/ErrorClass.php";
+require_once "Models/ResponseClass.php";
 
 // switch with get field apimethod
 switch($_GET['apimethod']) {
@@ -19,16 +19,17 @@ switch($_GET['apimethod']) {
         try{
             require_once("Controller/user.php");
             $tmpUser = Login($_POST);
-            $user = array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies());
-            print json_encode($user);
+            $user = array("User"=>array("username"=>$tmpUser->getUsername(), "policies"=>$tmpUser->getPolicies()));
+            $response = new ResponseClass("200", "Authenticated", "Authenticated", json_encode($user));
+            print json_encode($response);
         }catch(LoginException $e) {
             switch ($e->getMessage()) {
                 case"No SecureString specified":
-                    $error = new ErrorClass("401", "Bad parameter", "You need to provide a secure string");
+                    $error = new ResponseClass("401", "Bad parameter", "You need to provide a secure string");
                     print (json_encode($error));
                     break;
                 case"Invalid security string":
-                    $error = new ErrorClass("401", "Not authorized", "Incorrect login");
+                    $error = new ResponseClass("401", "Not authorized", "Incorrect login");
                     print (json_encode($error));
                     break;
             }
