@@ -5,9 +5,11 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:FitFocus.ViewModels"  
              xmlns:model="clr-namespace:FitFocus.Models"  
-             x:Name="BrowseItemsPage">
+             x:Name="BrowseItemsPage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
 
-    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 40, 0, 0'}">
+    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 50, 0, 0'}">
             <Frame.Background>
                 <!-- StartPoint defaults to (0,0) -->
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
