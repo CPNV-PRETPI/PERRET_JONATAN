@@ -10,7 +10,7 @@
 
 
     <ContentPage.Content>
-        <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 40, 0, 0'}">
+        <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 50, 0, 0'}">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
                     <GradientStop Color="Orange"
@@ -19,25 +19,63 @@
                                     Offset="1.0" />
                 </LinearGradientBrush>
             </Frame.Background>
-            <StackLayout>
+            <StackLayout Margin="20">
                 <StackLayout Padding="10,0,10,0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-                    <Label Text="FitFocus" FontSize="Title" TextColor="Black"/>
+                    <Label Margin="0, 20, 0, 50" Text="FitFocus" FontSize="Title" TextColor="Black"/>
                 </StackLayout>
-                <AbsoluteLayout BackgroundColor="Black" >
-                    <scanner:ZXingScannerView x:Name="scanView"
+                <AbsoluteLayout BackgroundColor="Transparent" >
+                    <Frame HasShadow="False"
                         AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
                         AbsoluteLayout.LayoutFlags="PositionProportional"
-                        IsVisible="False"
-                        IsEnabled="False"
-                        IsAnalyzing="False"
-                        IsScanning="False"
-                        HeightRequest="350"
-                        MinimumHeightRequest="350"
-                        WidthRequest="350"
-                        MinimumWidthRequest="350"
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="CenterAndExpand"/>
+                        BackgroundColor="Black"
+                        Padding="5"
+                        CornerRadius="5">
+                            <scanner:ZXingScannerView x:Name="scanView"
+                                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                IsVisible="False"
+                                IsEnabled="False"
+                                IsAnalyzing="False"
+                                IsScanning="False"
+                                HeightRequest="350"
+                                MinimumHeightRequest="350"
+                                WidthRequest="350"
+                                MinimumWidthRequest="350"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+                    </Frame>
+                    <ActivityIndicator AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" 
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   x:Name="activityIndicator"
+                                   IsRunning="True"
+                                   IsVisible="False"
+                                   Scale="2"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"/>
                 </AbsoluteLayout>
+                <Grid VerticalOptions="Fill">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1"
+                           x:Name="LabelCheckbox"
+                           Text="Remember credentials"
+                           FontSize="Small"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           TextColor="Black"/>
+                
+                    <CheckBox Grid.Column="0"
+                              x:Name="CheckboxSaveSecurestring"
+                              IsChecked="False"
+                              Color="Black"
+                              Margin="10,0,0,0"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Center"/>
+                </Grid>
+                <Button Padding="10" BackgroundColor="Gray" TextColor="Black" CornerRadius="15" Text="Sign in" Clicked="SignInButton_Clicked"/>
             </StackLayout>
         </Frame>
     </ContentPage.Content>

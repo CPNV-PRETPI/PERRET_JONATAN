@@ -23,10 +23,9 @@
         // connect to db
         $conn = ConnectToDB();
 
-        // check if securityString is valid
-        $sql = "SELECT * FROM users WHERE secure_string = '$securityString'";
-
-        $result = $conn->query($sql);
+        $sql = $conn->prepare("SELECT * FROM users WHERE secure_string = '$securityString'");
+        $sql->execute();
+        $result = $sql->get_result();
 
         if ($result->num_rows > 0) {
             // output data of each row

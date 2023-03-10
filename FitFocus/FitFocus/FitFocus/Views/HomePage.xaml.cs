@@ -26,6 +26,7 @@ namespace FitFocus.Views
 
         protected override void OnAppearing()
         {
+            _viewModel.OnAppearing();
             base.OnAppearing();
         }
     }
