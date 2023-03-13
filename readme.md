@@ -33,9 +33,9 @@
   * Nginx
 * A http request manager
 
+  * Postman
+  * Boomerang
+
 ## Usage
 ### Login by QR code
 [QR codes login](https://github.com/CPNV-PRETPI/PERRET_JONATAN/wiki/Test-Login-System)
-
-  * Postman
-  * Boomerang
