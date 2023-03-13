@@ -10,18 +10,61 @@
              Shell.TabBarIsVisible="False">
 
     <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 50, 0, 0'}">
-            <Frame.Background>
-                <!-- StartPoint defaults to (0,0) -->
-                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
-                    <GradientStop Color="Orange"
-                                    Offset="0.1" />
-                    <GradientStop Color="Red"
-                                    Offset="1.0" />
-                </LinearGradientBrush>
-            </Frame.Background>
-            <StackLayout Padding="10,0,10,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
-                <Label Text="FitFocus" FontSize="Title" TextColor="Black"/>
+        <Frame.Background>
+            <!-- StartPoint defaults to (0,0) -->
+            <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="{StaticResource BackgroundGradientStart}"
+                                Offset="0.1" />
+                <GradientStop Color="{StaticResource BackgroundGradientEnd}"
+                                Offset="1.0" />
+            </LinearGradientBrush>
+        </Frame.Background>
+        <StackLayout Padding="20,0,20,0" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" Margin="20, 0, 20, 20">
+                <Label Text="FitFocus" FontSize="Title" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                <ImageButton HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                    <ImageButton.Source>
+                        <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf2bd;"/>
+
+                    </ImageButton.Source>
+
+                </ImageButton>
             </StackLayout>
-        </Frame>
+            <StackLayout>
+                <Image VerticalOptions="Start" Source="https://fitfocus.cld.education/Assets/Images/TPI_HomePageImage.png" />
+
+            </StackLayout>
+            <StackLayout Margin="0, 20, 0, 20">
+                <Label Text="Workouts" TextColor="White" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text="Recommended workouts for you" TextColor="Gray" FontSize="Small" FontAttributes="Bold"/>
+                <CollectionView x:Name="ItemsListView" BackgroundColor="Transparent" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" 
+                    ItemsSource="{Binding Workouts}"
+                    ItemsLayout="HorizontalGrid, 1"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Workout">
+                            <StackLayout Margin="2, 0, 2, 10">
+                                <Frame HasShadow="false" CornerRadius="50" BackgroundColor="Transparent" Padding="0, 0, 0, 0" Margin="5, 0, 6, 0">
+                                    <AbsoluteLayout Padding="0">
+                                        <Frame HasShadow="False" CornerRadius="20" Padding="0" IsClippedToBounds="True">
+                                            <Image Source="{Binding CoverImageUrl}" WidthRequest="200" HeightRequest="200"/>
+                                        </Frame>
+                                        <StackLayout Margin="10, 5, 10, 10" WidthRequest="175" HeightRequest="175">
+                                            <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                                                <Label Text="{Binding ApproxTime}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+                                                <Label Text="{Binding SeriesNumber}" TextColor="Black" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </AbsoluteLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
 </ContentPage>
 

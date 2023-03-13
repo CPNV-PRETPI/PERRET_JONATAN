@@ -22,6 +22,8 @@ namespace FitFocus.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
             scanView.OnScanResult += ScanView_OnScanResult;
+            scanView.Options.DelayBetweenAnalyzingFrames = 5;
+            scanView.Options.DelayBetweenContinuousScans = 5;
         }
 
         protected override void OnAppearing()
@@ -142,6 +144,12 @@ namespace FitFocus.Views
             {
                 activityIndicator.IsVisible = valueToSet;
             });
+        }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            CameraManipulation(false);
+            Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
     }
 }

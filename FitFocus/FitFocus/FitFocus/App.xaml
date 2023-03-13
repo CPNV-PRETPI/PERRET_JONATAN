@@ -8,7 +8,30 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
-        </ResourceDictionary>        
+            <Color x:Key="BackgroundGradientStart">#444</Color>
+            <Color x:Key="BackgroundGradientEnd">#222</Color>
+            <x:String x:Key="HomePageImage">HomePageImage.png</x:String>
+
+            <!-- Font Awesome-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeBrands"> 
+                <On Platform="iOS" Value="FontAwesome6Brands-Regular" /> 
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeDuotone-Solid"> 
+                <On Platform="iOS" Value="FontAwesome6Pro-Duotone-Solid" /> 
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeLight"> 
+                <On Platform="iOS" Value="FontAwesome6Pro-Light" /> 
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegular">
+                <On Platform="iOS" Value="FontAwesome6Pro-Regular" /> 
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid"> 
+                <On Platform="iOS" Value="FontAwesome6Pro-Solid" /> 
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeThin"> 
+                <On Platform="iOS" Value="FontAwesome6Pro-Thin" /> 
+            </OnPlatform> 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
 

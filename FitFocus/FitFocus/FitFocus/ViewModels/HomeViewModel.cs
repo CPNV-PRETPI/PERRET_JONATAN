@@ -8,23 +8,29 @@ using Xamarin.Forms;
 using FitFocus.Models;
 using FitFocus.Views;
 using FitFocus.Services;
+using System.Collections.Generic;
 
 namespace FitFocus.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        ObservableCollection<Workout> Workouts;
+        public ObservableCollection<Workout> Workouts { get; }
+
         public HomeViewModel()
         {
+            Workouts = new ObservableCollection<Workout>();
             Title = "HomePage";
         }
 
-        public void OnAppearing()
+        public async void Refreshing()
         {
-            foreach (Workout workout in WorkoutsManager.GetHomeWorkouts())
+            IsBusy = true;
+            List<Workout> list = await WorkoutsManager.GetHomeWorkouts();
+            foreach (Workout workout in list)
             {
                 Workouts.Add(workout);
             }
+            IsBusy = false;
         }
     }
 }

@@ -13,9 +13,9 @@
         <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{OnPlatform Android='0, 0, 0, 0', iOS='0, 50, 0, 0'}">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
-                    <GradientStop Color="Orange"
+                    <GradientStop Color="{StaticResource BackgroundGradientStart}"
                                     Offset="0.1" />
-                    <GradientStop Color="Red"
+                    <GradientStop Color="{StaticResource BackgroundGradientEnd}"
                                     Offset="1.0" />
                 </LinearGradientBrush>
             </Frame.Background>
@@ -76,6 +76,7 @@
                               VerticalOptions="Center"/>
                 </Grid>
                 <Button Padding="10" BackgroundColor="Gray" TextColor="Black" CornerRadius="15" Text="Sign in" Clicked="SignInButton_Clicked"/>
+                <Button Text="GotoHomePage" Clicked="Button_Clicked" />
             </StackLayout>
         </Frame>
     </ContentPage.Content>

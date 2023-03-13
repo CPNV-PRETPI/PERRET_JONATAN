@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>FitFocus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.petchon.FitFocus</string>
+	<string>net.petchon.fifocus</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -36,5 +36,14 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use your camera to scan qr code to authenticate</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FontAwesomeLight.otf</string>
+		<string>FontAwesomeBrandsRegular.otf</string>
+		<string>FontAwesomeDuotoneSolid.otf</string>
+		<string>FontAwesomeRegular.otf</string>
+		<string>FontAwesomeSolid.otf</string>
+		<string>FontAwesomeThin.otf</string>
+	</array>
 </dict>
 </plist>

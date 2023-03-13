@@ -26,8 +26,13 @@ namespace FitFocus.Views
 
         protected override void OnAppearing()
         {
-            _viewModel.OnAppearing();
+            _viewModel.Refreshing();
             base.OnAppearing();
+        }
+
+        void RefreshView_Refreshing(System.Object sender, System.EventArgs e)
+        {
+            _viewModel.Refreshing();
         }
     }
 }

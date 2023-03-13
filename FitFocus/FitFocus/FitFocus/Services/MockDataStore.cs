@@ -15,7 +15,7 @@ namespace FitFocus.Services
 
         }
 
-        public async Task<bool> AddItemAsync(Workout item)
+        /*public async Task<bool> AddItemAsync(Workout item)
         {
             items.Add(item);
 
@@ -47,6 +47,6 @@ namespace FitFocus.Services
         public async Task<IEnumerable<Workout>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
-        }
+        }*/
     }
 }

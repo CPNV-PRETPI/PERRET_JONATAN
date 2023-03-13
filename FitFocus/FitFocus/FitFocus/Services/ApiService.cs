@@ -49,6 +49,36 @@ namespace FitFocus.Services
             }
         }
 
+        /// <summary>
+        /// Send an authentification request
+        /// </summary>
+        /// <param name="Url">url to connect</param>
+        /// <param name="securityString">secure string of the user</param>
+        /// <returns>response from the server</returns>
+        public async static Task<List<Workout>> PostToAPIEndpoint_GetWorkouts(string securityString)
+        {
+            try
+            {
+                string Url = GetUrl() + "?apimethod=workouts";
+                string html = string.Empty;
+                List<KeyValuePair<string, string>> body = new List<KeyValuePair<string, string>>();
+                body.Add(new KeyValuePair<string, string>("security-string", securityString));
+                WorkoutResponse response = JsonConvert.DeserializeObject<WorkoutResponse>(await PostToAPIEndpoint(body, Url));
+                if (response.Code == "200")
+                {
+                    string userString = response.Content;
+                    WorkoutList workout = JsonConvert.DeserializeObject<WorkoutList>(userString);
+                    return workout.Workouts;
+                }
+                return new List<Workout>();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.ToString());
+                throw new Exception("Login error");
+            }
+        }
+
 
 
         /// <summary>
