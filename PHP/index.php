@@ -45,19 +45,19 @@ switch($_GET['apimethod']) {
             require_once("Controller/WorkoutManager.php");
             try {
                 $workouts = GetWorkouts();
-                print json_encode($workouts);
+                print json_encode(new ResponseClass("200", "Valid", "Valid", json_encode($workouts)));
             } catch (WorkoutException $e) {
-                $error = new ErrorClass("400", "Bad parameter", "You need to provide a secure string");
+                $error = new ResponseClass("400", "Bad parameter", "You need to provide a secure string");
                 print (json_encode($error));
             }
         }catch(LoginException $e){
             switch($e->getMessage()) {
                 case"No SecureString specified":
-                    $error = new ErrorClass("401", "Bad parameter", "You need to provide a secure string");
+                    $error = new ResponseClass("401", "Bad parameter", "You need to provide a secure string");
                     print (json_encode($error));
                     break;
                 case"Invalid security string":
-                    $error = new ErrorClass("401", "Not authorized", "Incorrect login");
+                    $error = new ResponseClass("401", "Not authorized", "Incorrect login");
                     print (json_encode($error));
                     break;
             }

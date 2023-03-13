@@ -29,5 +29,36 @@
         }
       }
     }
+  },
+  "2": {
+    "Name": "Back",
+    "ApproxTime": "1h",
+    "CoverImageUrl": "https://fitfocus.cld.education/Assets/Images/TPI_WorkoutBackground.png",
+    "Series": {
+      "1": {
+        "Name": "Pull-ups",
+        "NumberOfSets": "3",
+        "TimeBetweenSets": "1min 30",
+        "TimeAfterSets": "2min",
+        "Exercise": {
+          "Name": "Pull-ups",
+          "NumberOfRepetitions": "until failure",
+          "PathToVideo": "",
+          "PathToCoverImage": ""
+        }
+      },
+      "2": {
+        "Name": "Pull-down",
+        "NumberOfSets": "3",
+        "TimeBetweenSets": "1min 30",
+        "TimeAfterSets": "2min",
+        "Exercise": {
+          "Name": "Pull-down",
+          "NumberOfRepetitions": "until failure",
+          "PathToVideo": "",
+          "PathToCoverImage": ""
+        }
+      }
+    }
   }
 }
