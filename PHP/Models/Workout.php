@@ -9,6 +9,7 @@ class Workout
 {
     public string $Name;
     public string $ApproxTime;
+    public string $CoverImageUrl;
     public array $Series;
 
     /**
@@ -18,6 +19,7 @@ class Workout
         try {
             $this->Name = $json["Name"];
             $this->ApproxTime = $json["ApproxTime"];
+            $this->CoverImageUrl = $json["CoverImageUrl"];
             $this->Series = [];
             foreach ($json["Series"] as $serieTmp) {
                 include_once "Models/Serie.php";
